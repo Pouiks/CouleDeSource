@@ -31,6 +31,9 @@ app.get("/categories", (request, response)=>{
 app.get("/connexion", (request,response)=>{
     response.render('connexion')
 })
+app.get('/createAccount', (request, response)=>{
+    response.render("createAccount")
+})
 
 
 

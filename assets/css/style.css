@@ -11,10 +11,13 @@ body{
     flex-direction: column;
 }
 header{
+    width: 100%;
     display: flex;
     background-color: rgb(80, 164, 233);
     align-items: center;
     height: 100px;
+    box-shadow: 1px 1px 1px grey;
+    position: fixed;
 
 
 }
@@ -26,6 +29,7 @@ height: 100px;
 .navigation{
     background-color: rgb(80, 164, 233);
     width: calc(100% - 100px);
+
 
 
 }
@@ -41,6 +45,12 @@ nav ul li{
     font-size: 1.5em;
     font-weight: bold;
 }
+nav ul li a:hover{
+    color: #FF5F6D;
+}
+nav ul li a:focus{
+    border-bottom: #FF5F6D;
+}
 a{
     text-decoration: none;
     color: white;
@@ -48,12 +58,13 @@ a{
 .wrapper{
     display: flex;
     flex-direction: column;
+    margin-top: 110px;
 }
 .slider{
     background: url(/images/nata2.jpg) no-repeat center;
     width: 100%;
     height: 350px;
-margin: 40px 0;
+    margin: 40px 0;
 }
 
 .bestProductContainer{
@@ -120,3 +131,167 @@ border-radius: 10px;
 
 }
 
+/*  PAGE CONNEXION */
+.container-connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+.connexion-part{
+    width: 50%;
+    height: 60%;
+    background-color: #50A4E9;
+    border-radius: 20px;
+}
+.connexion-part form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.connexion-part  form h3{
+    font-size:4em;
+    font-weight: bold;
+
+}
+.connexion-part  form label{
+    font-size: 2em;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 1rem;
+    color: white;
+}
+.connexion-part  form input{
+width: 40%;
+height: 5%;
+}
+.connexion-part  form input:focus{
+    border:2px solid #FF5F6D;
+}
+.connexion-part  form input::placeholder{
+text-align: center;
+}
+.connexion-part  form a {
+    padding: 1rem;
+}
+.connexion-part  form a:hover{
+    color: #FF5F6D;
+}
+.connexion-part  form button{
+    width: 250px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    color: #50A4E9;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px black;
+    animation: button 1s ease;
+    font-size: 1.3em;
+
+}
+
+.connexion-part  form button:hover{ 
+    
+    transform-origin: center center;
+    transform: scale(1.1,1.1);
+    transition-duration: 0.5s;
+
+
+}
+
+
+.createAccount{
+    padding: 1.2rem;
+    background-color: #FF5F6D;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px black;
+    margin: 20px 0;
+    font-size: 1.05em;
+    font-weight: bold;
+}
+.createAccount:hover{
+    transform-origin: center center;
+    transform: scale(1.1,1.1);
+    transition-duration: 0.5s;
+    color: #FF5F6D;
+    background-color: white;
+
+}
+/*  PAGE createAccount */
+
+.container-createAccount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+.createAccount-part{
+    width: 50%;
+    height: 60%;
+    background-color: #50A4E9;
+    border-radius: 20px;
+}
+.createAccount-part form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.createAccount-part h3{
+    font-size: 2em;
+    font-weight: bold;
+}
+.createAccount-part label{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 1rem;
+    color: white;
+}
+.createAccount-part form input{
+    width: 40%;
+    height: 5%;
+}
+.createAccount-part  form input::placeholder{
+    text-align: center;
+    }
+.createAccount-part form input:focus{
+    border:2px solid #FF5F6D;
+}
+.createAccount-part input[type="checkbox"]{
+width: 20px;
+height: 20px;
+}
+.conditionDUtilisation{
+    font-size: 1em;
+    color: #000000;
+}
+
+.createAccount-part  form button{
+    width: 250px;
+    height: 50px;
+    border: none;
+    background-color: white;
+    color: #50A4E9;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px black;
+    font-size: 1.3em;
+
+}
+
+.createAccount-part form button:hover{ 
+    
+    transform-origin: center center;
+    transform: scale(1.1,1.1);
+    transition-duration: 0.5s;
+
+
+}
