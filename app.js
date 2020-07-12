@@ -1,15 +1,19 @@
 const express = require("express");
+const product = require("./product");
+
 const app = express();
 const port = 3000;
 
-const product = require("./product");
+const tableProduct = [];
 
 app.use(express.static('./assets'));
+app.set("view engine", 'ejs');
+app.set('views', './views');
+
 
 app.locals.product = product;
 
-app.set("view engine", 'ejs');
-app.set('views', './views');
+
 
 app.listen(port, () => {
     console.log(`server started on ${port}`);
@@ -19,9 +23,14 @@ app.listen(port, () => {
 app.get("/" ,(request, response, next)=>{
     response.render("index");
 });
-const tableProduct = [];
 
-for(let element of product){
+app.get("/categories", (request, response)=>{
+    response.render('categories');
+});
 
-    console.log(element.title + element.price + element.stock);
-}
+app.get("/connexion", (request,response)=>{
+    response.render('connexion')
+})
+
+
+
