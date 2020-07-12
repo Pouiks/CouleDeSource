@@ -11,8 +11,9 @@ routeur.get("/categories", (request, response)=>{
 
 routeur.get("/connexion", (request,response)=>{
     response.render('connexion')
-})
+});
 routeur.get('/createAccount', (request, response)=>{
     response.render("createAccount")
-})
+});
+
 module.exports= routeur;
