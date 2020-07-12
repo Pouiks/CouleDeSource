@@ -1,0 +1,12 @@
+{
+    "personne" : {
+
+    "name" : "Joinville",
+
+     "firstName" : "Virgile",
+
+     "age": 29, 
+     
+     "ville" :"Montpellier"
+    }
+}

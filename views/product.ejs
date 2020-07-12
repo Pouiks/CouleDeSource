@@ -1,0 +1,17 @@
+<% for(let element of product){ %>
+    <% if(element.bestProduct){ %>
+
+        <div class="bestProductContainer">
+            <div class="bestProduct-product">
+                <img src="<%= element.image %>" alt="">
+                <h5><%= element.title %></h5>
+                <p><%= element.description %></p>
+                <ul>
+                    <li class="green">Disponible</li>
+                    <li><%= element.price %></li>
+                    <li class="js"><%= element.winPoint %></li>
+                </ul>
+                <button>Ajouter au panier</button>
+            </div>
+        </div> 
+    <% }} %>
