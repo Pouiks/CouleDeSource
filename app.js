@@ -1,35 +1,39 @@
+require('dotenv').config();
+
 const express = require("express");
-const product = require("./product");
-const routeur = require("./router");
-const categories = require("./categories")
-const users = require("./user")
+const router = require('./app/router');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const categories = require("./categories")
+const product = require("./product");
 
-app.use(express.urlencoded({extended: true}));
 
-let currentusers =[];
-app.use((request, response, next) => {
-    app.locals.users = users;
-    next();
-});
+
 
 app.locals.product = product;
 app.locals.categories = categories;
-app.locals.users = users;
 
-app.use(routeur);
+app.use(express.urlencoded({extended: true}));
+
+app.use(cookieParser());
 app.use(express.static('./assets'));
 app.set("view engine", 'ejs');
 app.set('views', './views');
 
-app.post('/connexion', (request, response)=>{
 
-
-    users.push(`${request.body}`, `${request.body.users}`);
-    console.log(users)
-    
-    });  
+app.use( session({
+    secret: 'Hello, we are Jason and we make beautiful projects',
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+        userName: 1000*60*10 ,// <= le cookie a 10 minutes de vie
+        password: 1000*60*10
+    }
+}) );
+app.use(router);
+ 
 
 
 app.listen(port, () => {
