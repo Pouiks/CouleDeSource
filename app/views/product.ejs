@@ -1,0 +1,27 @@
+<%- include ('partials/header') %>
+
+<div class="row">
+    <div class="product--part col-12">
+        <div class="product--part__img col-4">
+            <img src="/images/product/<%= product.id %>.jpg" alt="">
+            <a href="/cart/add/<%= product.id %>" class="btn btn-succes">Ajouter au panier <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+        </div>
+        <div class="product--part__description col-8">
+            <h3><%= product.name %></h3>
+            <p><%= product.product_reference %> -- <%= product.matter %></p>
+            <p> Prix HT: <%= product.price_ht %> €</p>
+            <p>Couleur : <%= product.color %></p>
+            <p>Taille :<%= product.size %> </p>
+            <p class="productTitle">Description:</p>
+            <p class="descriptionProduct"><%= product.description %></p>
+         </div>
+     </div>
+</div>
+
+<div class="row">
+    <div class="proposition">
+        <h2>Vous pourriez aussi aimer ...</h2>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

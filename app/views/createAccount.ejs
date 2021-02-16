@@ -1,0 +1,46 @@
+<%- include ('partials/header') %>
+
+<div class="row">
+
+
+        <% if(locals.error !== undefined) { %>
+            <h2 class="errorTitle">*<%= error %></h2>
+        <% } %>
+
+        
+        <div class="createAccount col-lg-12">
+            <fieldset>
+                <h3>Je souhaite créer mon compte</h3>
+                <form action="/createAccount" method="POST">
+                    <label for="">firstname</label>
+                    <input required type="text" name="firstname" placeholder="firstname">
+                    <label for="">lastname</label>
+                    <input required type="text" name="lastname" placeholder="lastname">
+                    <label for="">date of birth</label>
+                    <input required type="date" name="date_of_birth" placeholder="date of birth">
+                    <label for="">age</label>
+                    <input required type="text" name="age" placeholder="age">
+                    <label for="">email</label>
+                    <input required type="text" name="email" placeholder="email">
+                    <label for="">adress</label>
+                    <input required type="text" name="adress" placeholder="adress">
+                    <label for="">city</label>
+                    <input required type="text" name="city" placeholder="city">
+                    <label for="">postal code</label>
+                    <input required type="text" name="postal_code" placeholder="postal code">
+                    <label value="mot de passe">Entrer votre mot de passe</label>
+                    <input type="password" required name="password" placeholder="Votre mot de passe">
+                    <label for="passwordConfirm" value="Confirmez votre mot de passe">Confirmez votre mot de passe</label>
+                    <input type="password" required class="form-control" id="passwordConfirm" name="passwordConfirm"
+                    placeholder="Confirmez votre mot de passe">                        
+                    <button type="submit" class="btn btn-warning">Creer mon compte</button>
+                </form>
+            </fieldset>
+        </div>
+
+ </div>
+
+
+
+
+<%- include('partials/footer') %>

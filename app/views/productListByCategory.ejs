@@ -1,0 +1,25 @@
+<%- include ('partials/header') %>
+
+
+<h2>Catégorie du site</h2>
+
+<div class="catalogue">
+    <%for(product of products.products){ %>
+    <a href="/product/<%= product.id %>">
+        <div class="card col-3">
+            <img src="/images/product/<%= product.id %>.jpg" alt="produit <%= product.name %>">
+            <h4><%= product.name %></h4>
+            <p><%= product.description %></p>
+            <p>Prix d'achat: <%= product.price_ht%>€</p>
+            <div class="addToCart">
+                <a href="/cart/add/<%= product.id %>" class="btn btn-succes">Ajouter au panier <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        
+    </a>
+    <% } %>
+    
+</div>
+
+
+<%- include('partials/footer') %>

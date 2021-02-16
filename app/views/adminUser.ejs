@@ -1,0 +1,97 @@
+<%- include ('partials/adminHeader') %>
+
+<div class="main">
+    <div class="specificPart">
+        
+        <div class="addUser">
+            <h3>Add USER</h3>
+            <form action="/admin/adminUser/add" method="POST">
+                <label for="">firstname</label>
+                <input required type="text" name="firstnameAdmin" placeholder="firstname" value="">
+                <label for="">lastname</label>
+                <input required type="text" name="lastnameAdmin" placeholder="lastname">
+                <label for="">date of birth</label>
+                <input required type="date" name="date_of_birthAdmin" placeholder="date of birth">
+                <label for="">age</label>
+                <input required type="text" name="ageAdmin" placeholder="age">
+                <label for="">email</label>
+                <input required type="text" name="emailAdmin" placeholder="email">
+                <label for="">password</label>
+                <input required type="password" name="passwordAdmin" placeholder="password">
+                <label for="">adress</label>
+                <input required type="text" name="adressAdmin" placeholder="adress">
+                <label for="">city</label>
+                <input required type="text" name="cityAdmin" placeholder="city">
+                <label for="">postal code</label>
+                <input required type="text" name="postal_codeAdmin" placeholder="postal code">
+                <button>Add USER</button>
+            </form>
+        <!-- manque le created_at, je sais pas trop si je dois l'ajouter ou pas -->
+        </div>
+        <div class="modifyUser">
+            <h3>Modify USER</h3>
+            <%# for(let user of users){ %>
+               <!-- <select name="<%# = user.firstname + " " + user.lastname %>" id="<%#= user.id %>"><%#= user.fullName %></select>  -->
+            <%# } %>
+            <form action="/admin/adminUser/select" method="POST">
+                <select name="userList" id="useRList">
+                        <option value="">--Select user--</option>
+                        <% for(let element of user){ %>
+                            <option value="<%= element.id %>"><%= element.firstname +" " + element.lastname %></option>
+                        <% } %>
+                </select>
+                <button class="btn btn-success">check</button>
+            </form>
+            
+            <form action="/admin/adminUser/update" method="POST">
+                <% if(locals.msg) { %>
+                    <p><%= msg %></p>
+                <% } %>
+                <label for="">firstname</label>
+                <input required type="text" name="firstname" placeholder="firstname" value="<%= locals.selectedUser ? selectedUser.firstname : "" %>">
+                <label for="">lastname</label>
+                <input required type="text" name="lastname" placeholder="lastname" value="<%= locals.selectedUser ? selectedUser.lastname : "" %>">
+                <label for="">date of birth</label>
+                <input required type="date" name="date_of_birth" placeholder="date of birth" value="<%= locals.selectedUser ? selectedUser.date_of_birth : "" %>">
+                <label for="">age</label>
+                <input required type="text" name="age" placeholder="age" value="<%= locals.selectedUser ? selectedUser.age : "" %>">
+                <label for="">email</label>
+                <input required type="text" name="email" placeholder="email" value="<%= locals.selectedUser ? selectedUser.email : "" %>">
+                <label for="">password</label>
+                <input required type="text" name="password" placeholder="password" value="<%= locals.selectedUser ? selectedUser.password : "" %>">
+                <label for="">adress</label>
+                <input required type="text" name="adress" placeholder="adress" value="<%= locals.selectedUser ? selectedUser.adress : "" %>">
+                <label for="">city</label>
+                <input required type="text" name="city" placeholder="city" value="<%= locals.selectedUser ? selectedUser.city : "" %>">
+                <label for="">postal code</label>
+                <input required type="text" name="postal_code" placeholder="postal code" value="<%= locals.selectedUser ? selectedUser.postal_code : "" %>">
+                <label for="">created at</label>
+                <input required type="date" name="created_at" placeholder="created_at" value="<%= locals.selectedUser ? selectedUser.created_at : "" %>">
+                <label for="">role</label>
+                <input required type="text" name="role" placeholder="role" value="<%= locals.selectedUser ? selectedUser.role : "" %>">
+        
+                <button class="btn btn-success">Validate modifications</button>
+            </form>
+        </div>
+        <div class="removeUser">
+            <h3>Remove User</h3>
+            
+            
+                <form action="/admin/adminUser/delete" method="POST">
+                    <% if(locals.msg) { %>
+                        <p><%= msg %></p>
+                    <% } %>
+                    <select name="deleteUser" id="deleteUser">
+                        <option value="">--Qui souhaitez vous supprimer--</option>
+                        <% for(let element of user){ %>
+                            <option value="<%= element.id %>"><%= element.firstname +" " + element.lastname %></option>
+                        <% } %>
+                    </select>
+                    <button >REMOVE USER</button>
+                </form>
+        
+        </div>
+    </div>
+</div>
+
+<%- include('partials/adminFooter') %>

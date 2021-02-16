@@ -1,0 +1,21 @@
+<%- include ('partials/header') %>
+
+
+<h2>Catégorie du site</h2>
+
+<div class="catalogue">
+    <%for(element of category){ %>
+
+        <div class="card">
+            <img src="/images/category/<%= element.name %>.jpg" alt="Catégorie <%= element.name %>">
+            <h4><%= element.name %></h4>
+            <p><%= element.description %></p>
+            <a class="btn btn-primary" href="/category/<%= element.id %>">Découvrir</a>
+        </div>
+        
+    <% } %>
+    
+</div>
+
+
+<%- include('partials/footer') %>

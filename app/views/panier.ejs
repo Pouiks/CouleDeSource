@@ -1,0 +1,98 @@
+<%- include('partials/header') %>
+
+
+  <!-- Page Content -->
+  <div class="container container-main">
+
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center">Votre Panier</h3>
+
+        <table class="table">
+          <thead>
+            <th>Article</th>
+            <th>Quantité</th>
+            <th>Prix HT</th>
+          </thead>
+          <tbody>
+            <% for(const article of cart){ %>
+                <% console.log(article) %>
+              <tr>
+                <td>
+                  <img class="img-thumbnail img-cart-list" src="/images/product/<%= article.id %>.jpg" alt="">
+                  <div class="item-description">
+                      <h5 class="item-title"><%= article.name %></h5>
+                      <p class="item-prize">$<%= article.price_ht %></p>
+                  </div>
+                </td>
+
+                <td>
+                  <strong><%= article.quantity %></strong>
+                  <a href="/cart/add/<%= article.id %>">+</a> / <a href="/cart/delete/<%= article.id %>">-</a>
+                </td>
+
+                <td>
+                  <p class="item-subtotal">$<%= article.price_ht * article.quantity %></p>
+                </td>
+              </tr>
+            <% } %>
+
+            <!-- Frais de port -->
+            <tr>
+              <td class="text-right" colspan="2">
+                Frais de port
+              </td>
+              <td class="item-subtotal">
+                $<%= fdp.toFixed(2) %>
+                
+              </td>
+            </tr>
+
+            <tfoot>
+              <tr>
+                <td class="text-right" colspan="2">
+                  Total HT
+                </td>
+                <td class="item-subtotal">
+                  $<%= subTotal.toFixed(2) %>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="text-right" colspan="2">
+                  TVA 20%
+                </td>
+                <td class="item-subtotal">
+                  $<%= tva.toFixed(2) %>
+                </td>
+              </tr>
+
+              <tr class="row-total">
+                <td class="text-right" colspan="2">
+                  Total TTC
+                </td>
+                <td class="item-total">
+                  $<%= total.toFixed(2) %>
+                </td>
+              </tr>
+
+            </tfoot>
+
+          </tbody>
+
+        </table>
+
+        <div class="row">
+          <div class="col text-right">
+              <div class="btn btn-success">
+                Passer Commande
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>

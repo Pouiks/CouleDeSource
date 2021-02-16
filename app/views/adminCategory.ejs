@@ -1,0 +1,53 @@
+<%- include ('partials/adminHeader') %>
+
+<div class="main">
+    <div class="specificPart">
+        <div class="addCategory">
+            <h3>Add Category</h3>
+            <form action="/admin/adminCategory/add" method="POST">
+                <label for="">name</label>
+                <input required  type="text" name="name" placeholder="name">
+                <label for="">description</label>
+                <input required  type="text" name="description" placeholder="description">
+                <button>Add category</button>
+            </form>
+        </div>
+        <div class="modifyCategory">
+            <h3>Modify Category</h3>
+            <form action="/admin/adminCategory/select" method="POST">
+                <select name="categoryList" id="categorYList">
+                        <option value="">--Select category--</option>
+                        <% for(let element of category){ %>
+                            <option value="<%= element.id %>"><%= element.name %></option>
+                        <% } %>
+                </select>
+                <button class="btn btn-success">check</button>
+            </form>
+            <form action="/admin/adminCategory/update" method="POST">
+                <label for="">name</label>
+                <input required  type="text" name="name" placeholder="name" value="<%= locals.selectedCategory ? selectedCategory.name : "" %>">
+                <label for="">description</label>
+                <input required  type="text" name="description" placeholder="description" value="<%= locals.selectedCategory ? selectedCategory.description : "" %>">
+                <button>accept modifications</button>
+            </form>
+
+        </div>
+        <div class="deleteCategory">
+            <h3>Delete Category</h3>
+            <form action="/admin/adminCategory/delete" method="POST">
+                <select name="deletedCategory" id="deleteDCategory">
+                    <option value="">-- Choissisez une catégorie --</option>
+                    <%for(element of category){ %>
+                        <option value="<%=element.id%>"><%= element.name %></option>
+                    <% } %>
+                </select>
+                <button>remove the category</button>
+         </form>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+<%- include('partials/adminFooter') %>

@@ -1,0 +1,114 @@
+<%- include ('partials/adminHeader') %>
+
+<div class="main">
+    <div class="specificPart">
+        <div class="addProduct">
+            <h3>Add PRODUCT</h3>
+            <form action="/admin/adminProduct/add" method="POST">
+                <label for="name">name</label>
+                <input required  type="text" name="name" placeholder="name">
+                <label for="description">description</label>
+                <input required  type="text" name="description" placeholder="description">
+                <label for="category">category</label>
+                <select name="selectedCategory" id="selecteDCategory">
+                    <option value="">Attribuer une catégorie</option>
+                    <% for(let element of categoryOnLoad){ %>
+                        <option value="<%= element.id%>" id="<%= element.id%>"><%= element.name %></option>
+                        <% } %>
+                </select>
+                <label for="price_ht">Prix hors taxe</label>
+                <input required  type="number" name="price_ht" placeholder="price hors taxe">
+                <label for="price_no_rebate">prix sans reduction</label>
+                <input required  type="number" name="price_no_rebate" placeholder="prix sans reduction">
+                <label for="brand">brand</label>
+                <input required  type="text" name="brand" placeholder="brand">
+                <label for="quantity">quantity</label>
+                <input required  type="number" name="quantity" placeholder="quantity">
+                <label for="product_reference">product reference</label>
+                <input required  type="text" name="product_reference" placeholder="product reference">
+                <label for="ean">ean</label>
+                <input required  type="number" name="ean" placeholder="ean">
+                <label for="color">color</label>
+                <input required  type="color" name="color" placeholder="color">
+                <!-- Bouton radio choix multiple ? -->
+                <label for="matter">matter</label>
+                <input required  type="text" name="matter" placeholder="matter">
+                <label for="size">size</label>
+                <input required  type="text" name="size" placeholder="size">
+                <label for="size">size unit</label>
+                <input   type="text" name="size_unit" placeholder="size_unit">
+                <label for="size">weight</label>
+                <input   type="text" name="weight" placeholder="weight">
+                <label for="size">weight unit</label>
+                <input   type="text" name="weight_unit" placeholder="weight_unit">
+                <button>Add Product</button>
+            </form>
+        <!-- manque le created_at, je sais pas trop si je dois l'ajouter ou pas -->
+        </div>
+        <div class="modifyProduct">
+            <h3>Modify PRODUCT</h3>
+            <%# for(let user of users){ %>
+               <!-- <select name="<%# = user.firstname + " " + user.lastname %>" id="<%#= user.id %>"><%#= user.fullName %></select>  -->
+            <%# } %>
+            <form action="/admin/adminProduct/select" method="POST">
+                <select name="productList" id="">
+                    <option value="">--Select product--</option>
+                    <% for(let element of productOnLoad){ %>
+                        <option value="<%= element.name %>"><%= element.name%></option>
+                    <% } %>
+                </select>
+                <button class="btn btn-success">check</button>
+            </form>
+            <form action ="/admin/adminProduct/update" method="POST">
+                    <label for="">name</label>
+                    <input required  type="text" name="name" placeholder="name">
+                    <label for="">description</label>
+                    <input required  type="text" name="description" placeholder="description">
+                    <label for="">Prix hors taxe</label>
+                    <input required required type="number" name="price_ht" placeholder="price hors taxe">
+                    <label for="">prix sans reduction</label>
+                    <input required  type="number" name="price_no_rebate" placeholder="prix sans reduction">
+                    <label for="">brand</label>
+                    <input required  type="text" name="brand" placeholder="brand">
+                    <label for="">quantity</label>
+                    <input required  type="number" name="quantity" placeholder="quantity">
+                    <label for="">product reference</label>
+                    <input required  type="text" name="product_reference" placeholder="product reference">
+                    <label for="">ean</label>
+                    <input required  type="number" name="ean" placeholder="ean">
+                    <label for="">color</label>
+                    <input required  type="color" name="color" placeholder="color">
+                    <!-- Bouton radio choix multiple ? -->
+                    <label for="">matter</label>
+                    <input required  type="text" name="matter" placeholder="matter">
+                    <label for="">size</label>
+                    <input required  type="text" name="size" placeholder="size">
+                    <label for="size">size unit</label>
+                    <input   type="text" name="size_unit" placeholder="size_unit">
+                    <label for="size">weight</label>
+                    <input   type="text" name="weight" placeholder="weight">
+                    <label for="size">weight unit</label>
+                    <input   type="text" name="weight_unit" placeholder="weight_unit">
+        
+                <button class="btn">Validate modifications</button>
+            </form>
+        </div>
+        <div class="removeProduct">
+            <h3>Remove User</h3>
+            
+            
+                <form action="/admin/adminProduct/delete" method="POST">
+                    <select name="deleteProduct" id="">
+                    <option value="">--Que souhaitez vous supprimer--</option>
+                    <% for(let element of productOnLoad){ %>
+                        <option value="<%= element.name %>"><%= element.name %></option>
+                    <% } %>
+                    </select>
+                    <button >REMOVE PRODUCT</button>
+                </form>
+        
+        </div>
+    </div>
+</div>
+
+<%- include('partials/adminFooter') %>
